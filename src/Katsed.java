@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Katsed {
@@ -64,19 +65,22 @@ public class Katsed {
         viiesTund.opetaja = "Anna Karutina";
         viiesTund.ruum = "Kopli A - A411 (arvutiklass)";
 
-        // loo Päev objekt
-        Paev esmaspaev = new Paev();
-        esmaspaev.kuupaev = "2019-11-18";
+        // koostame nimekiri tundidest, mis võivad toimuda päeval
 
-        // lisame tunnid päevale
         ArrayList<Tund> tunnid = new ArrayList<Tund>();
         tunnid.add(esimeneTund);
         tunnid.add(teineTund);
         tunnid.add(kolmasTund);
         tunnid.add(neljasTund);
         tunnid.add(viiesTund);
-        esmaspaev.tundideNimekiri = tunnid;
 
-        System.out.println(esmaspaev);
+        // loome tunniplaani tundide nimekirja abil
+        Tunniplaan vs18 = new Tunniplaan();
+        vs18.nadal = "2019-11-18";
+        vs18.tunnid = new HashMap<String, List<Tund>>();
+        vs18.tunnid.put("2019-11-18", tunnid);
+
+        // kontrollime tunniplaani andmed
+        System.out.println(vs18);
     }
 }
